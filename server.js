@@ -1,9 +1,14 @@
 // Importing necessary modules
 const express = require("express"); // Express.js for server creation
 const mysql = require("mysql"); // MySQL for database interaction
+const matchRoutes = require('./routes/index');  // import the route module
+require('dotenv').config();
 
 // Creating an instance of an express application
 const app = express();
+
+// Use the imported route module at the /api path
+app.use('/api', matchRoutes);
 
 // Define the port for the server
 const PORT = process.env.PORT || 5000;
@@ -18,10 +23,10 @@ app.get("/", (req, res) => {
 
 // Define the configuration for the MySQL database connection
 const db = mysql.createConnection({
-    host: "localhost", // The hostname of the database server
-    user: "root", // The MySQL user to authenticate as
-    password: "root", // The password of that MySQL user
-    database: "soccer_stats_db", // The name of the database to use
+    host: "localhost",
+    user: "root",
+    password: process.env.DB_PASSWORD,
+    database: "soccer_stats_db",
 });
 
 // Attempt to connect to the database
