@@ -12,7 +12,7 @@ This website displays historical and current soccer match results and statistics
 
 ## Technologies
 
-- Data Collection: Football-Data.org API, SoccerAPI, or web scraping (e.g., ESPN Soccer).
+- Data Collection: Football-Data.org API
 - Database: MySQL.
 - Backend: Node.js, Express.js.
 - Frontend: React.
