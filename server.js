@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 const db = mysql.createConnection({
     host: "localhost", // The hostname of the database server
     user: "root", // The MySQL user to authenticate as
-    password: "TheGers1955!", // The password of that MySQL user
+    password: "root", // The password of that MySQL user
     database: "soccer_stats_db", // The name of the database to use
 });
 
