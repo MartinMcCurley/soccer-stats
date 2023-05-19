@@ -11,23 +11,12 @@ router.get('/matches', (req, res) => {
         headers: { 'X-Auth-Token': API_KEY }
     })
     .then(response => {
-        let data = response.data.matches;
-
-        let output = '<table><tr><th>Home Team</th><th>Away Team</th><th>Status</th></tr>';
-
-        for (let i = 0; i < data.length; i++) {
-            output += `<tr><td>${data[i].homeTeam.name}</td><td>${data[i].awayTeam.name}</td><td>${data[i].status}</td></tr>`;
-        }
-
-        output += '</table>';
-
-        res.send(output);
+        res.render('home', { matches: response.data.matches });
     })
     .catch(error => {
         console.error('Error fetching data: ', error);
         res.status(500).send('Error fetching data');
     });
 });
-
 
 module.exports = router;
